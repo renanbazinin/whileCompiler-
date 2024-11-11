@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+#code-section, #output-section {
+    margin: 20px;
+    flex: 1 1 400px;
+}
+
+textarea {
+    width: 100%;
+    font-family: monospace;
+}
+
+#error {
+    color: red;
+    margin-top: 10px;
+}
+
+#output {
+    margin-top: 20px;
+}
+
+#treeCanvas {
+    border: 1px solid #000;
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+
+#inputX.valid {
+    outline: 2px solid green;
+}
+
+#inputX.partial {
+    outline: 2px solid orange;
+}
+
+#inputX.invalid {
+    outline: 2px solid red;
+}

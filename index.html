@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>While Language Interpreter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>While Language Interpreter</h1>
+    <div id="container">
+        <div id="code-section">
+            <h2>Enter your While program:</h2>
+            <textarea id="codeInput" rows="15" cols="80" placeholder="Type your While program here..."></textarea>
+            <h2>Enter input variable 'x' (tree notation):</h2>
+            <textarea id="inputX" rows="5" cols="80" placeholder="Enter tree for x (e.g., (nil nil nil) or (a . (b . nil)))"></textarea>
+            <button id="runButton">Run Program</button>
+            <div id="error" class="error"></div>
+        </div>
+        <div id="output-section">
+            <h2>Program Output:</h2>
+            <div id="output"></div>
+            <canvas id="treeCanvas" width="800" height="600"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
