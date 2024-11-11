@@ -54,7 +54,7 @@ OR
    - Click "Run Program" to interpret the code, visualize the transformations, and see the output.
 
 ## Input and Output Example
-- **Input**:
+- **Input Example**:
   ```plaintext
   read x;
   while x do {
@@ -63,9 +63,7 @@ OR
   };
   write y;
   ```
-- **Output**:
-  - Tree Notation: `((nil.nil).nil)`
-  - List Notation: `(nil nil)`
+
 
 ## Real-Time Input Validation
 - The input field for variable `x` provides real-time validation:
