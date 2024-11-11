@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <title>While Language Interpreter</title>
     <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Interpreter your While algo 🌲🌲 (don't forget input)">
+    <meta property="og:image" content="https://i.imgur.com/IZZbtEJ.png">
+    <link rel="icon" href="https://i.imgur.com/IZZbtEJ.png" type="image/x-icon">
 </head>
 <body>
     <h1>While Language Interpreter</h1>
     <div id="container">
         <div id="code-section">
             <h2>Enter your While program:</h2>
-            <textarea id="codeInput" rows="15" cols="80" placeholder="Type your While program here..."></textarea>
+            <textarea id="codeInput" rows="15" cols="80" placeholder="Type your While program here...&#10example:&#10read x;&#10while x do{&#10y:=cons(hd(x),y);&#10x:=tl (x)&#10};&#10write y"></textarea>
             <h2>Enter input variable 'x' (tree notation):</h2>
             <textarea id="inputX" rows="5" cols="80" placeholder="Enter tree for x (e.g., (nil nil nil) or (a . (b . nil)))"></textarea>
             <button id="runButton">Run Program</button>
