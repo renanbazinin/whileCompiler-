@@ -174,7 +174,7 @@ function parseProgram(tokens) {
     }
 
     function parseExpression() {
-        if (tokens[index] === 'hd' || tokens[index] === 'tl') {
+        if (tokens[index] === 'hd' || tokens[index] === 'tl' || tokens[index] === 'succ' || tokens[index] === 'pred') {
             const op = tokens[index++];
             const expr = parseExpression();
             return { type: 'UnaryOp', operator: op, expression: expr };
@@ -270,7 +270,25 @@ function evaluateExpression(expr, variables) {
                 return operand.left || { value: 'nil', left: null, right: null };
             } else if (expr.operator === 'tl') {
                 return operand.right || { value: 'nil', left: null, right: null };
-            } else {
+            } else if (expr.operator === 'succ') {
+                // Implement succ: Add one 'nil' to the list
+                return {
+                    value: '.',
+                    left: { value: 'nil', left: null, right: null },
+                    right: operand
+                };
+            } else if (expr.operator === 'pred') {
+                // Implement pred: Remove one 'nil' from the list
+                if (operand.value === '.' && operand.left.value === 'nil') {
+                    return operand.right; // Remove one 'nil' from the front
+                } else {
+                    // If operand is not a list starting with 'nil', return 'nil'
+                    return { value: 'nil', left: null, right: null };
+                }
+            }           
+            
+            
+            else {
                 throw new Error(`Unknown unary operator: ${expr.operator}`);
             }
         case 'Cons':
