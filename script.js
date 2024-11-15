@@ -174,7 +174,7 @@ function parseProgram(tokens) {
     }
 
     function parseExpression() {
-        if (tokens[index] === 'hd' || tokens[index] === 'tl' || tokens[index] === 'succ' || tokens[index] === 'pred') {
+        if (tokens[index] === 'hd' || tokens[index] === 'tl' || tokens[index] === 'succ' || tokens[index] === 'pred' || tokens[index] === 'reverse') {
             const op = tokens[index++];
             const expr = parseExpression();
             return { type: 'UnaryOp', operator: op, expression: expr };
@@ -285,9 +285,10 @@ function evaluateExpression(expr, variables) {
                     // If operand is not a list starting with 'nil', return 'nil'
                     return { value: 'nil', left: null, right: null };
                 }
-            }           
-            
-            
+            } else if (expr.operator === 'reverse') {
+                return reverseList(operand);
+            }
+                 
             else {
                 throw new Error(`Unknown unary operator: ${expr.operator}`);
             }
@@ -557,4 +558,31 @@ function drawTree(root, canvas) {
         context.lineWidth = 2;
         context.stroke();
     }
+}
+
+function reverseList(listNode) {
+    let result = { value: 'nil', left: null, right: null }; // Start with 'nil'
+    let current = listNode;
+
+    while (current && current.value === '.') {
+        const newNode = {
+            value: '.',
+            left: current.left,
+            right: result,
+        };
+        result = newNode;
+        current = current.right;
+    }
+
+    // Handle improper lists or end nodes
+    if (current && current.value !== 'nil') {
+        const newNode = {
+            value: '.',
+            left: current,
+            right: result,
+        };
+        result = newNode;
+    }
+
+    return result;
 }
