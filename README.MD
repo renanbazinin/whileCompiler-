@@ -57,7 +57,7 @@ OR
   ```plaintext
   read x;
   while x do {
-      y := cons (hd x) y;
+      y := cons ((hd x), y);
       x := tl x;
   };
   write y;
